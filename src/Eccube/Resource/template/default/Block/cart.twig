@@ -44,7 +44,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                 {% set Product = ProductClass.Product %}
                 <div class="item_box clearfix">
                     <div class="item_photo"><img
-                                src="{{ app.config.image_save_urlpath }}/{{ Product.MainListImage|no_image_product }}"
+                                src="{{ asset(Product.MainListImage|no_image_product, 'image_save_urlpath') }}"
                                 alt="{{ Product.name }}"></div>
                     <dl class="item_detail">
                         <dt class="item_name">{{ Product.name }}</dt>

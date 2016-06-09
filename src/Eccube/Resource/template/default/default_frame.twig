@@ -38,15 +38,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
     <meta name="robots" content="{{ PageLayout.meta_robots }}">
 {% endif %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="{{ app.config.front_urlpath }}/img/common/favicon.ico">
-<link rel="stylesheet" href="{{ app.config.front_urlpath }}/css/style.css?v={{ constant('Eccube\\Common\\Constant::VERSION') }}">
-<link rel="stylesheet" href="{{ app.config.front_urlpath }}/css/slick.css?v={{ constant('Eccube\\Common\\Constant::VERSION') }}">
-<link rel="stylesheet" href="{{ app.config.front_urlpath }}/css/default.css?v={{ constant('Eccube\\Common\\Constant::VERSION') }}">
+<link rel="icon" href="{{ asset('/img/common/favicon.ico') }}">
+<link rel="stylesheet" href="{{ asset('/css/style.css', 'version') }}">
+<link rel="stylesheet" href="{{ asset('/css/slick.css', 'version') }}">
+<link rel="stylesheet" href="{{ asset('/css/default.css', 'version') }}">
 <!-- for original theme CSS -->
 {% block stylesheet %}{% endblock %}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="{{ app.config.front_urlpath }}/js/vendor/jquery-1.11.3.min.js?v={{ constant('Eccube\\Common\\Constant::VERSION') }}"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="{{ asset('/js/vendor/jquery-1.11.3.min.js', 'version') }}"><\/script>')</script>
 
 {# ▼Head COLUMN #}
 {% if PageLayout.Head %}
@@ -159,15 +159,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 <div class="overlay"></div>
 
-<script src="{{ app.config.front_urlpath }}/js/vendor/bootstrap.custom.min.js?v={{ constant('Eccube\\Common\\Constant::VERSION') }}"></script>
-<script src="{{ app.config.front_urlpath }}/js/vendor/slick.min.js?v={{ constant('Eccube\\Common\\Constant::VERSION') }}"></script>
-<script src="{{ app.config.front_urlpath }}/js/function.js?v={{ constant('Eccube\\Common\\Constant::VERSION') }}"></script>
-<script src="{{ app.config.front_urlpath }}/js/eccube.js?v={{ constant('Eccube\\Common\\Constant::VERSION') }}"></script>
+<script src="{{ asset('/js/vendor/bootstrap.custom.min.js', 'version') }}"></script>
+<script src="{{ asset('/js/vendor/slick.min.js', 'version') }}"></script>
+<script src="{{ asset('/js/function.js', 'version') }}"></script>
+<script src="{{ asset('/js/eccube.js', 'version') }}"></script>
 <script>
 $(function () {
     $('#drawer').append($('.drawer_block').clone(true).children());
     $.ajax({
-        url: '{{ app.config.front_urlpath }}/img/common/svg.html',
+        url: '{{ asset('/img/common/svg.html') }}',
         type: 'GET',
         dataType: 'html',
     }).done(function(data){

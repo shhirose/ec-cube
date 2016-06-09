@@ -68,14 +68,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                 <div id="detail_list__item--{{ OrderDetail.id }}" class="td table">
                                     <div id="detail_list__image--{{ OrderDetail.id }}" class="item_photo">
                                         {% if OrderDetail.Product is null %}
-                                            <img src="{{ app.config.image_save_urlpath }}/{{ ''|no_image_product }}" />
+                                            <img src="{{ asset(''|no_image_product, 'image_save_urlpath') }}" />
                                         {% else %}
                                             {% if OrderDetail.enable %}
                                                 <a href="{{ url('product_detail', { id : OrderDetail.Product.id } ) }}">
-                                                    <img src="{{ app.config.image_save_urlpath }}/{{ OrderDetail.product.MainListImage|no_image_product }}">
+                                                    <img src="{{ asset(OrderDetail.product.MainListImage|no_image_product, 'image_save_urlpath') }}">
                                                 </a>
                                             {% else %}
-                                                <img src="{{ app.config.image_save_urlpath }}/{{ ''|no_image_product }}" />
+                                                <img src="{{ asset(''|no_image_product, 'image_save_urlpath') }}" />
                                             {% endif %}
                                         {% endif %}
                                     </div>
@@ -129,12 +129,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                         <div id="shipping_list__shipment_item--{{ Shipping.id }}_{{ shipmentItem.product.id }}" class="td table">
                                             <div id="shipping_list__shipment_image--{{ Shipping.id }}_{{ shipmentItem.product.id }}" class="item_photo">
                                                 {% if shipmentItem.product is null %}
-                                                    <img src="{{ app.config.image_save_urlpath }}/{{ ''|no_image_product }}" />
+                                                    <img src="{{ asset(''|no_image_product, 'image_save_urlpath') }}" />
                                                 {% else %}
                                                     {% if shipmentItem.product.enable %}
-                                                        <img src="{{ app.config.image_save_urlpath }}/{{ shipmentItem.product.MainListImage|no_image_product }}" alt="{{ shipmentItem.productName }}" />
+                                                        <img src="{{ asset(shipmentItem.product.MainListImage|no_image_product, 'image_save_urlpath') }}" alt="{{ shipmentItem.productName }}" />
                                                     {% else %}
-                                                        <img src="{{ app.config.image_save_urlpath }}/{{ ''|no_image_product }}" />
+                                                        <img src="{{ asset(''|no_image_product, 'image_save_urlpath') }}" />
                                                     {% endif %}
                                                 {% endif %}
                                             </div>

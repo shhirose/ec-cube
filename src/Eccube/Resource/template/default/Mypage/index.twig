@@ -58,12 +58,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                             <div id="history_detail_list__item--{{ Order.id }}_{{ OrderDetail.id }}" class="tr">
                                                 <div id="history_detail_list__image--{{ Order.id }}_{{ OrderDetail.id }}" class="item_photo td">
                                                     {% if OrderDetail.Product is null %}
-                                                        <img src="{{ app.config.image_save_urlpath }}/{{ '' | no_image_product }}" />
+                                                        <img src="{{ asset('' | no_image_product, 'image_save_urlpath') }}" />
                                                     {% else %}
                                                         {% if OrderDetail.enable %}
-                                                            <img src="{{ app.config.image_save_urlpath }}/{{ OrderDetail.product.MainListImage|no_image_product }}">
+                                                            <img src="{{ asset(OrderDetail.product.MainListImage|no_image_product, 'image_save_urlpath') }}">
                                                         {% else %}
-                                                            <img src="{{ app.config.image_save_urlpath }}/{{ ''|no_image_product }}" />
+                                                            <img src="{{ asset(''|no_image_product, 'image_save_urlpath') }}" />
                                                         {% endif %}
                                                     {% endif %}
                                                 </div>

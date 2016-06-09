@@ -168,7 +168,7 @@ $(function() {
                             {% for orderDetail in Order.orderDetails %}
                             <div id="cart_box_list__item_box--{{ loop.index }}" class="item_box tr">
                                 <div id="cart_box_list__item--{{ loop.index }}" class="td table">
-                                    <div id="cart_box_list__photo--{{ loop.index }}" class="item_photo"><img src="{{ app.config.image_save_urlpath }}/{{ orderDetail.product.MainListImage|no_image_product }}" alt="{{ orderDetail.productName }}" /></div>
+                                    <div id="cart_box_list__photo--{{ loop.index }}" class="item_photo"><img src="{{ asset(orderDetail.product.MainListImage|no_image_product, 'image_save_urlpath') }}" alt="{{ orderDetail.productName }}" /></div>
                                     <dl id="cart_box_list__detail--{{ loop.index }}" class="item_detail">
                                         <dt id="cart_box_list__name--{{ loop.index }}" class="item_name text-default">{{ orderDetail.productName }}</dt>
                                         <dd id="cart_box_list__class_category--{{ loop.index }}" class="item_pattern small">
@@ -226,7 +226,7 @@ $(function() {
                                 {% for shipmentItem in shipping.shipmentItems %}
                                     <div id="shipping_confirm_box__item--{{ idx }}_{{ shipmentItem.id }}" class="item_box tr">
                                         <div id="shipping_box__body_inner--{{ idx }}_{{ shipmentItem.id }}" class="td table">
-                                            <div id="shipping_box__photo--{{ idx }}_{{ shipmentItem.id }}" class="item_photo"><img src="{{ app.config.image_save_urlpath }}/{{ shipmentItem.product.MainListImage|no_image_product }}" alt="{{ shipmentItem.productName }}" /></div>
+                                            <div id="shipping_box__photo--{{ idx }}_{{ shipmentItem.id }}" class="item_photo"><img src="{{ asset(shipmentItem.product.MainListImage|no_image_product, 'image_save_urlpath') }}" alt="{{ shipmentItem.productName }}" /></div>
                                             <dl id="shipping_box__detail--{{ idx }}_{{ shipmentItem.id }}" class="item_detail">
                                                 <dt id="shipping_box__name--{{ idx }}_{{ shipmentItem.id }}" class="item_name text-default">{{ shipmentItem.productName }}</dt>
                                                 <dd id="shipping_box__class_category--{{ idx }}_{{ shipmentItem.id }}" class="item_pattern small">
@@ -282,7 +282,7 @@ $(function() {
                             <li>
                                 {{ form_widget(child, {'attr': {'class': 'payment' }}) }}
                                 {% if form.payment.vars.choices[key].data.payment_image is not null %}
-                                <img src="{{ app.config.image_save_urlpath }}/{{ form.payment.vars.choices[key].data.payment_image }}">
+                                <img src="{{ asset(form.payment.vars.choices[key].data.payment_image, 'image_save_urlpath') }}">
                                 {% endif %}
                             </li>
                             {% endfor %}

@@ -25,6 +25,7 @@ namespace Eccube;
 
 use Eccube\Application\ApplicationTrait;
 use Eccube\Common\Constant;
+use MatTheCat\Asset\Silex\Provider\AssetServiceProvider;
 use Monolog\Logger;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\Finder\Finder;
@@ -292,10 +293,21 @@ class Application extends ApplicationTrait
         $this->register(new \Silex\Provider\TwigServiceProvider(), array(
             'twig.form.templates' => array('Form/form_layout.twig'),
         ));
+
+        $assets = $this['config'];
+        $packages = $assets['assets']['packages'];
+        foreach ($packages as $key => $package) {
+            if (!isset($package['version']) && isset($package['version_format'])
+                    || isset($package['version']) && empty($package['version'])) {
+
+                $assets['assets']['packages'][$key]['version'] = Constant::VERSION;
+            }
+        }
+        $this->register(new AssetServiceProvider(), $assets);
+
         $this['twig'] = $this->share($this->extend('twig', function(\Twig_Environment $twig, \Silex\Application $app) {
             $twig->addExtension(new \Eccube\Twig\Extension\EccubeExtension($app));
             $twig->addExtension(new \Twig_Extension_StringLoader());
-
             return $twig;
         }));
 

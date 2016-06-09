@@ -104,10 +104,10 @@ $(function(){
                 <div id="detail_image_box__slides" class="slides">
                     {% if Product.ProductImage|length > 0 %}
                         {% for ProductImage in Product.ProductImage %}
-                        <div id="detail_image_box__item--{{ loop.index }}"><img src="{{ app.config.image_save_urlpath }}/{{ ProductImage|no_image_product }}"/></div>
+                        <div id="detail_image_box__item--{{ loop.index }}"><img src="{{ asset(ProductImage|no_image_product, 'image_save_urlpath') }}"/></div>
                         {% endfor %}
                     {% else %}
-                        <div id="detail_image_box__item"><img src="{{ app.config.image_save_urlpath }}/{{ ''|no_image_product }}"/></div>
+                        <div id="detail_image_box__item"><img src="{{ asset(''|no_image_product, 'image_save_urlpath') }}"/></div>
                     {% endif %}
                 </div>
             </div>
