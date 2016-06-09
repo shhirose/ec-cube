@@ -53,3 +53,13 @@ image_save_urlpath: ${ROOT_URLPATH}/upload/save_image
 image_temp_urlpath: ${ROOT_URLPATH}/upload/temp_image
 user_data_urlpath: ${ROOT_URLPATH}/user_data
 plugin_urlpath: ${ROOT_URLPATH}/plugin
+
+#asset sample
+assets:
+    base_path: &front_urlpath ${ROOT_URLPATH}/template/${TEMPLATE_CODE}
+    packages:
+      version:
+        base_path: *front_urlpath
+        version_format: "%s?v=%s"
+      image_save_urlpath:
+        base_path: ${ROOT_URLPATH}/upload/save_image
